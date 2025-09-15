@@ -1,8 +1,18 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-12">
-      @for (card of cards; track $index) {
-      <card-component [nombreColor] = "card"> </card-component>
-      }
+<app-navbar [titulo] = "'Mi Navbar'">
+  <a>Google.com</a>
+  <a>Facebook.com</a>
+  <a>Twitter.com</a>
+</app-navbar>
+<div class="d-flex">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <app-tarjeta [titulo] = "'Presentacion'" [icono]="'icono'" [subtitulo] = "'carta'">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam facilis, possimus eaque hic, aperiam nisi numquam quos</p>
+          <footer>
+            <small>Mi footer</small>
+          </footer>
+        </app-tarjeta>
+    </div>
   </div>
 </div>

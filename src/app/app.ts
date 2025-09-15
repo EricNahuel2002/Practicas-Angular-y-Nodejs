@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './card-component/card-component';
+import { Navbar } from "./navbar/navbar";
+import { Tarjeta } from "./tarjeta/tarjeta";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CardComponent],
+  imports: [RouterOutlet, CardComponent, Navbar, Tarjeta],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
