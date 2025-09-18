@@ -1,0 +1,10 @@
+@if(abierto){
+    <ul>
+        <ng-content></ng-content>
+    </ul>
+}
+<div class="position-relative border" style="height:200px;">
+  <button (click) = "toggle()" class="btn btn-primary position-absolute bottom-0 start-0 m-2">
+     ☰
+  </button>
+</div>
