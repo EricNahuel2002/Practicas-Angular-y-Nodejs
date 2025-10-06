@@ -1,1 +1,19 @@
-<p>list-locations works!</p>
+<h2 class="bg-black text-white text-center">Ubicaciones</h2>
+<p-table [value]="locations" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Dimension</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-locations>
+        <tr>
+            <td>{{ locations.id }}</td>
+            <td>{{ locations.name }}</td>
+            <td>{{ locations.type }}</td>
+            <td>{{ locations.dimension }}</td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -16,7 +16,7 @@ export class CharacterService {
 
 
   getCharacters():Observable<Character[]>{
-    return this.httpClient.get<GetCharacter>(`${environment.API_URL}character`)
+    return this.httpClient.get<GetCharacter>(`${environment.API_URL}/character`)
     .pipe(
       map((char : GetCharacter) => {
         return char.results;

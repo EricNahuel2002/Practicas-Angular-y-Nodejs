@@ -1,1 +1,19 @@
-<p>list-episodes works!</p>
+<h2 class="bg-black text-white text-center">Episodios</h2>
+<p-table [value]="episodes" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Air_date</th>
+            <th>Episode</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-episodes>
+        <tr>
+            <td>{{ episodes.id }}</td>
+            <td>{{ episodes.name }}</td>
+            <td>{{ episodes.air_date }}</td>
+            <td>{{ episodes.episode }}</td>
+        </tr>
+    </ng-template>
+</p-table>
