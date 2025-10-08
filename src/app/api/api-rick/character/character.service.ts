@@ -23,4 +23,15 @@ export class CharacterService {
       })
     );
   }
+
+  GetCharacterById(id:number):Observable<Character>{
+    return this.httpClient.get<Character>(`${environment.API_URL}/character/${id}`)
+    .pipe(
+      map((char : Character) => {
+        return char;
+      }
+    )
+  )
+  }
+
 }

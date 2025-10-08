@@ -3,16 +3,19 @@ import { CharacterService } from '../../../../api/api-rick/character/character.s
 import {inject} from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { Character } from '../../interfaces/character.interface';
+import { ButtonModule } from 'primeng/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-characters',
-  imports: [TableModule],
+  imports: [TableModule,ButtonModule],
   templateUrl: './list-characters.html',
   styleUrl: './list-characters.css'
 })
 export class ListCharacters implements OnInit {
 
   character : Character[] = [];
+  router = inject(Router);
 
   characterService = inject(CharacterService);
 
@@ -34,4 +37,11 @@ export class ListCharacters implements OnInit {
       }
     })
   }
+
+
+  verDetalle(id:number){
+    this.router.navigate(['characters/',id]);
+  }
+
+
 }

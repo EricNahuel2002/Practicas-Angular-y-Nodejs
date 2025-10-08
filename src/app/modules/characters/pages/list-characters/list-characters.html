@@ -6,6 +6,7 @@
             <th>Name</th>
             <th>Gender</th>
             <th>Species</th>
+            <th>Acciones</th>
         </tr>
     </ng-template>
     <ng-template #body let-character>
@@ -14,6 +15,7 @@
             <td>{{ character.name }}</td>
             <td>{{ character.gender }}</td>
             <td>{{ character.species }}</td>
+            <td><p-button label="VER DETALLE" (onClick)="verDetalle(character.id)"></p-button></td>
         </tr>
     </ng-template>
 </p-table>
