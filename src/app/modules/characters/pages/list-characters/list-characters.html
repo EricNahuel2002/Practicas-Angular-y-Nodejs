@@ -1,5 +1,6 @@
 <h2 class="bg-black text-white text-center">Personajes</h2>
-<p-table [value]="character" [tableStyle]="{ 'min-width': '50rem' }">
+<input type="text" pInputText [(ngModel)]="characterBuscado" (ngModelChange)="buscarCharacter($event)" class="mb-3 mt-3" placeholder="Busca un personaje por el nombre"  fluid />
+<p-table [value]="charactersFiltrados()" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template #header>
         <tr>
             <th>Id</th>

@@ -1,4 +1,4 @@
-import { Injectable,inject } from '@angular/core';
+import { Injectable,OnDestroy,computed,effect,inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment.development';
@@ -8,10 +8,19 @@ import { Character, GetCharacter } from '../../../modules/characters/interfaces/
 @Injectable({
   providedIn: 'root'
 })
-export class CharacterService {
+export class CharacterService implements OnDestroy {
+  ngOnDestroy(): void {
+    this.charactersEffect.destroy();
+  }
   
 
   private httpClient = inject(HttpClient);
+
+  characters = signal<Character[]>([]);
+  cantidadCaracteres = computed(() => this.characters().length);
+  charactersEffect = effect(() => {
+    console.log(`La cantidad de personajes es: ${this.cantidadCaracteres()}`);
+  })
 
 
 
@@ -19,6 +28,7 @@ export class CharacterService {
     return this.httpClient.get<GetCharacter>(`${environment.API_URL}/character`)
     .pipe(
       map((char : GetCharacter) => {
+        this.characters.set(char.results);
         return char.results;
       })
     );
@@ -33,5 +43,6 @@ export class CharacterService {
     )
   )
   }
+
 
 }
