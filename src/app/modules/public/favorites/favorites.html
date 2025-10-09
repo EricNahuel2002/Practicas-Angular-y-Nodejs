@@ -1,0 +1,18 @@
+<p-table [value]="favoritos()" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Species</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-favoritos>
+        <tr>
+            <td>{{ favoritos.id }}</td>
+            <td>{{ favoritos.name }}</td>
+            <td>{{ favoritos.gender }}</td>
+            <td>{{ favoritos.species }}</td>
+        </tr>
+    </ng-template>
+</p-table>

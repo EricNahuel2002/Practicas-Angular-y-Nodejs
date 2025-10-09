@@ -3,6 +3,8 @@ import { ListCharacters } from './modules/characters/pages/list-characters/list-
 import { ListLocations } from './modules/locations/pages/list-locations/list-locations';
 import { ListEpisodes } from './modules/episodes/pages/list-episodes/list-episodes';
 import { DetailCharacter } from './modules/characters/pages/detail-character/detail-character';
+import { Favorites } from './modules/public/favorites/favorites';
+
 
 export const routes: Routes = [
 
@@ -21,6 +23,10 @@ export const routes: Routes = [
     {
         path: 'characters/:id',
         component : DetailCharacter
+    },
+    {
+        path: 'favorites',
+        component : Favorites
     },
     {
         path: '**',
