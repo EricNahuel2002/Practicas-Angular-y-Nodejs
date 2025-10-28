@@ -1,0 +1,16 @@
+<p-table [value]="autores" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Pais</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-autor>
+        <tr>
+            <td>{{ autor.AutorID }}</td>
+            <td>{{ autor.Nombre }}</td>
+            <td>{{ autor.Pais }}</td>
+        </tr>
+    </ng-template>
+</p-table>
