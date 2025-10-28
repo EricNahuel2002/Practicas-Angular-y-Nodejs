@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-project-clase4": {
+    "front-CRUD": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-project-clase4:build:production"
+              "buildTarget": "front-CRUD:build:production"
             },
             "development": {
-              "buildTarget": "angular-project-clase4:build:development"
+              "buildTarget": "front-CRUD:build:development"
             }
           },
           "defaultConfiguration": "development"

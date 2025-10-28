@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Módulos y sintaxis moderna
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "types": ["node"],
+
+    // Generación de tipos y mapas
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Type-checking estricto
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true,
+
+    // Elimina el problema de verbatimModuleSyntax
+    "verbatimModuleSyntax": false,
+
+    // Necesario para TSX y proyectos que usan import/export
+    "isolatedModules": true
+  },
+  "include": ["src"]
+}

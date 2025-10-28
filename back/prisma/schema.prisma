@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+  //output   = "./node_modules/@prisma/client"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Autor {
+  AutorID Int     @id(map: "PK__Autor__F58AE909049EAED8") @default(autoincrement())
+  Nombre  String  @db.NVarChar(100)
+  Pais    String? @db.NVarChar(50)
+  Libro   Libro[]
+}
+
+model Curso {
+  CursoID     Int         @id(map: "PK__Curso__7E023A370EBCAD96") @default(autoincrement())
+  NombreCurso String      @db.NVarChar(100)
+  Creditos    Int
+  Matricula   Matricula[]
+}
+
+model Estudiante {
+  EstudianteID    Int         @id(map: "PK__Estudian__6F768338FCB7F525") @default(autoincrement())
+  NombreCompleto  String      @db.NVarChar(100)
+  FechaNacimiento DateTime?   @db.Date
+  Matricula       Matricula[]
+}
+
+model Libro {
+  LibroID         Int    @id(map: "PK__Libro__35A1EC8DF9F1E7E4") @default(autoincrement())
+  Titulo          String @db.NVarChar(200)
+  AnioPublicacion Int?
+  AutorID         Int
+  Autor           Autor  @relation(fields: [AutorID], references: [AutorID], onDelete: Cascade, map: "FK_Libro_Autor")
+}
+
+model Matricula {
+  EstudianteID   Int
+  CursoID        Int
+  FechaMatricula DateTime   @default(now(), map: "DF__Matricula__Fecha__403A8C7D") @db.Date
+  Curso          Curso      @relation(fields: [CursoID], references: [CursoID], onDelete: Cascade, map: "FK_Matricula_Curso")
+  Estudiante     Estudiante @relation(fields: [EstudianteID], references: [EstudianteID], onDelete: Cascade, map: "FK_Matricula_Estudiante")
+
+  @@id([EstudianteID, CursoID], map: "PK_Matricula")
+}
+
+model sysdiagrams {
+  name         String @db.NVarChar(128)
+  principal_id Int
+  diagram_id   Int    @id(map: "PK__sysdiagr__C2B05B61903D3596") @default(autoincrement())
+  version      Int?
+  definition   Bytes?
+
+  @@unique([principal_id, name], map: "UK_principal_name")
+}
