@@ -2,10 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { AutorService } from '../../../api/biblioteca-api/autor.service';
 import { Autor } from '../interface/autor.interface';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-autor-component',
-  imports: [TableModule],
+  imports: [TableModule, RouterLink],
   templateUrl: './autor-component.html',
   styleUrl: './autor-component.css',
 })

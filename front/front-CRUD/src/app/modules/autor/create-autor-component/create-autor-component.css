@@ -1,0 +1,45 @@
+.empleado-form {
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  background-color: #fff;
+  transition: box-shadow 0.25s ease;
+}
+
+.empleado-form:hover {
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
+}
+
+.empleado-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.empleado-form input {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  padding: 0.65rem 0.8rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.empleado-form input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+  outline: none;
+}
+
+.p-button {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+
+.empleado-form .submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,53 @@
+<form 
+  [formGroup]="form" 
+  autocomplete="off" 
+  (ngSubmit)="createAutor()" 
+  class="empleado-form card p-4 shadow-sm"
+>
+  <h4 class="mb-4 text-center text-primary fw-bold">
+    Crear nuevo empleado
+  </h4>
+
+  <div class="form-group mb-3">
+    <label for="nombre" class="form-label fw-semibold">Nombre</label>
+    <input 
+      type="text" 
+      id="nombre" 
+      formControlName="Nombre" 
+      pInputText 
+      class="w-100"
+      placeholder="Ingrese el nombre"
+    />
+    @if(form.get('Nombre')?.hasError('required') && form.get('Nombre')?.touched){
+      <span class="text-danger">El nombre es requerido</span>
+    }
+  </div>
+
+  <div class="form-group mb-4">
+    <label for="Pais" class="form-label fw-semibold">País</label>
+    <input 
+      type="text" 
+      id="Pais" 
+      formControlName="Pais" 
+      pInputText 
+      class="w-100"
+      placeholder="Ingrese el país"
+    />
+    @if(form.get('Pais')?.hasError('required') && form.get('Pais')?.touched){
+      <span class="text-danger">El pais es requerido</span>
+    }
+  </div>
+
+  <div class="submit-container mt-3 bg-success">
+  <p-button 
+    type="submit" 
+    label="Crear empleado" 
+    [rounded]="true" 
+    severity="success"
+    class="px-4"
+    [disabled]="form.invalid"
+  ></p-button>
+</div>
+
+
+</form>

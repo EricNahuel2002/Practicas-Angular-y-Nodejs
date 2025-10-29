@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Autor } from '../../modules/autor/interface/autor.interface';
 import { environment } from '../../../environments/environment.development';
+import { AutorMapper } from './autor.mapper';
+import { AutorRest } from './autor.interface.rest';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,15 @@ export class AutorService {
 
 
   getAutores():Observable<Autor[]>{
-    return this.httpclient.get<Autor[]>(`${environment.BIBLIOTECA_URL}/autor/all`);
+    return this.httpclient.get<AutorRest[]>(`${environment.BIBLIOTECA_URL}/autor/all`).pipe(
+      map((res) => {
+        return AutorMapper.mapRestAutorArrayToAutorArray(res);
+      })
+    );
+  }
+
+
+  createAutor(autor:Autor){
+    return this.httpclient.post(`${environment.BIBLIOTECA_URL}/autor/add`,autor);
   }
 }
